@@ -1,0 +1,39 @@
+.gist-container {
+    position: relative;
+}
+
+.gist-button {
+    border-radius: 15px;
+    background: #93dbf7;
+    padding: 4px 12px;
+    position: absolute;
+    top: 2px;
+    right: 75px;
+    border: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.gist-button:hover {
+    cursor: pointer;
+    background: #97d3dd;
+}
+
+.gist-button > span {
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.gist-button > object {
+    display: inline;
+    margin: 0 0 0 4px;
+    width: 16px;
+    height: 16px;
+}
+
+.gist-button > object:hover {
+    cursor: pointer;
+}
