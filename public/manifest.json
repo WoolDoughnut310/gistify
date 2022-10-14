@@ -1,0 +1,46 @@
+{
+    "manifest_version": 3,
+    "name": "Gistify",
+    "version": "1.0.0",
+    "description": "Add a button to convert code blocks into GitHub Gists",
+    "action": {
+        "default_popup": "index.html"
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "clipboardWrite"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "scripts/content_script.js"
+            ],
+            "css": [
+                "scripts/content_script.css"
+            ]
+        }
+    ],
+    "background": {
+        "service_worker": "scripts/background.js",
+        "type": "module"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "scripts/*.js",
+                "scripts/content_main.js",
+                "gists.js",
+                "*.svg"
+            ],
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ]
+        }
+    ]
+}
