@@ -3,10 +3,10 @@ import { GitHub, ExternalLink } from "react-feather";
 
 function App() {
     const [authData, setAuthData] = useState();
-    const [authorised, setAuthorised] = useState(false);
+    const [authorized, setAuthorized] = useState(false);
 
     const onLogin = async () => {
-        if (authorised) return;
+        if (authorized) return;
         chrome.runtime.sendMessage({
             type: "AUTH_REQUEST",
         });
@@ -18,7 +18,7 @@ function App() {
             const key = "accessToken";
             const accessToken = (await chrome.storage.sync.get(key))[key];
             if (accessToken) {
-                setAuthorised(true);
+                setAuthorized(true);
             }
         })();
     }, []);
@@ -28,7 +28,7 @@ function App() {
         const onStorageChanged = (changes) => {
             if (changes.accessToken) {
                 const accessToken = changes.accessToken.newValue;
-                setAuthorised(Boolean(accessToken));
+                setAuthorized(Boolean(accessToken));
             }
         };
 
@@ -64,7 +64,7 @@ function App() {
                 className="rounded-lg py-3 px-5 mt-3 bg-gray-900 hover:text-gray-500 transition-colors cursor-pointer font-medium hover:border-blue-500 focus:ring"
                 onClick={onLogin}
             >
-                {authorised ? "Authorised" : "Authorise GitHub"}
+                {authorized ? "Authorised" : "Authorise GitHub"}
                 <GitHub className="h-6 inline ml-3" />
             </button>
             {authData && (
