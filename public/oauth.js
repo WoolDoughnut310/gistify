@@ -4,7 +4,6 @@ const USER_CODE_ENDPOINT = "/device/code";
 const USER_AUTH_ENDPOINT = "/oauth/access_token";
 
 const CLIENT_ID = "15ca1014289369cdbd6c";
-// const CLIENT_ID = "4bec01f9c58a6489e727";
 
 export const getVerificationCode = async () => {
     const response = await fetch(BASE_URL + USER_CODE_ENDPOINT, {

@@ -1,6 +1,6 @@
 import { createGist } from "/gists.js";
 
-// For use in different functions
+// For use in multiple functions
 let accessToken;
 
 // Gets the language used by a code block
@@ -39,7 +39,8 @@ function createGistButton(element, language) {
 
     button.onclick = async () => {
         // Create gist with target language
-        const filename = crypto.randomUUID() + `.${language}`;
+        const extension = language ? `.${language}` : "";
+        const filename = crypto.randomUUID() + extension;
         const url = await createGist(accessToken, filename, content);
         await navigator.clipboard.writeText(url);
 
