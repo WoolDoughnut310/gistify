@@ -37,7 +37,7 @@ function createGistButton(element, language) {
     button.appendChild(label);
     button.appendChild(icon);
 
-    button.onclick = async () => {
+    button.addEventListener("click", async () => {
         // Create gist with target language
         const extension = language ? `.${language}` : "";
         const filename = crypto.randomUUID() + extension;
@@ -49,7 +49,7 @@ function createGistButton(element, language) {
         return setTimeout(() => {
             label.textContent = "Gistify";
         }, 3000);
-    };
+    });
 
     container.insertBefore(button, container.firstChild);
 }
